@@ -14,6 +14,7 @@ public class HTTPRequest {
 	
 	
 	public void sendGET(String url) throws IOException{
+
 		URL url_obj;
 		
 		url_obj = new URL(url);
@@ -37,9 +38,7 @@ public class HTTPRequest {
 		
 		Find find = new Find();
 		find.findAllOccurances(site_as_string, "<img");
-		
-		
-	
+
 	
 	}
 	

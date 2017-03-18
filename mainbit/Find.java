@@ -77,9 +77,9 @@ public class Find {
 		if(debug){
 			System.out.println( "exit element: \'" + find_element_exit + "\'");
 		}
-		int elements_found = 0;
-
 		
+		
+		int elements_found = 0;
 		int find_entrance_count = 0; 
 		int find_exit_count = 0;
 		
