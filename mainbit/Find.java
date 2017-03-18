@@ -9,7 +9,7 @@ public class Find {
 		
 		ArrayList<String> element_list = new ArrayList<String>();
 
-		String find_element_end = "</" + find_element.substring(1, find_element.length()) + ">";
+		String find_element_end = elementEnd(find_element);
 
 		int elements_found = 0;
 		int first_position = 0; 
@@ -60,16 +60,17 @@ public class Find {
 	public List<ArrayList<String>> findAllOccurances( ArrayList<String> elements, String find_element ){
 		List<ArrayList<String>> elements_list = new ArrayList<ArrayList<String>>();
 		
-		
-		String find_element_end = "</" + find_element.substring(1, find_element.length()) + ">";
-		System.out.println(find_element_end);
-		
+
+		String find_element_end = elementEnd(find_element);
+		System.out.println( find_element_end );
 		int elements_found = 0;
 		int first_position = 0; 
 		int last_position = 0;
 		
 		int first_count = 0; 
 		int second_count = 0;
+		
+		
 
 		for( int i = 0; i<elements.size(); i++ ){
 			if( elements.get(i).contains(find_element) ){
@@ -84,6 +85,7 @@ public class Find {
 					elements_list.get(j).add(elements.get(i));
 				}
 			}
+			
 			if( elements.get(i).contains(find_element_end) && elements_found !=0 ){
 				elements_found--;
 				second_count++;
@@ -92,22 +94,36 @@ public class Find {
 		
 		
 		
-		/*for(int i= 0; i<elements_list.size(); i++){
+		for(int i= 0; i<elements_list.size(); i++){
 			
 			System.out.println("----------------------------------------------------------------");
 			for(int j=0; j<elements_list.get(i).size(); j++){
 				System.out.println( elements_list.get(i).get(j) );
 			}
-		}*/
+		}
+		
+
 		System.out.println("Element found: " 	+ elements_found + "\n" 
 				+ "First position: " 	+ first_position + "\n"
 				+ "Last position: " 	+ last_position + "\n"
 				+ "Element list: " + elements_list.size() + "\n"
 				+ "first count" + first_count +  "\n"
-				+ "second count" + second_count
+				+ "second count" + second_count + "\n"
+				+ "array list" + elements_list.size() + "\n"
+				+ "array list 2 " + elements.get(0).length()
 				);
 		return elements_list; 
 		
+	}
+	
+	private String elementEnd(String find_element){
+		
+		if(find_element == "<img" || find_element == "<meta" || find_element == "<link" ){
+			return ">";
+		}else{
+			return "</" + find_element.substring(1, find_element.length()) + (find_element.contains(">") ? "" : ">");
+		}
+
 	}
 	
 }

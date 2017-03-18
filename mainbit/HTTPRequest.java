@@ -1,17 +1,14 @@
-package httpbits;
+package mainbit;
 
-import java.awt.List;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-import scraper.Find;
 
-public class httptest {
+public class HTTPRequest {
 
 	private final String USER_AGENT = "Mozilla/5.0";
 	
