@@ -36,7 +36,7 @@ public class HTTPRequest {
 		in.close();
 		
 		Find find = new Find();
-		find.findAllOccurances(site_as_string, "<div");
+		find.findAllOccurances(site_as_string, "<img");
 		
 		
 	
