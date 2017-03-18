@@ -13,7 +13,7 @@ public class Main {
 			//new httptest().sendGET("http://www.readcomics.tv/dc-universe-rebirth/chapter-1/full");
 			//new httptest().sendGET("http://localhost/scrappertest/div.html");
 			
-			new HTTPRequest().sendGET("http://www.readcomics.tv/dc-universe-rebirth/chapter-1/full");
+			new HTTPRequest().sendGET("http://localhost/scrappertest/div.html");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

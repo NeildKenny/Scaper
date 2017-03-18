@@ -58,11 +58,13 @@ public class Find {
 	}
 	
 	public List<ArrayList<String>> findAllOccurances( ArrayList<String> elements, String find_element ){
-		List<ArrayList<String>> elements_list = new ArrayList<ArrayList<String>>();
 		
+		List<ArrayList<String>> elements_list = new ArrayList<ArrayList<String>>();
+		List<ArrayList<String>> elements_list2 = new ArrayList<ArrayList<String>>();
 
 		String find_element_end = elementEnd(find_element);
 		System.out.println( find_element_end );
+		
 		int elements_found = 0;
 		int first_position = 0; 
 		int last_position = 0;
@@ -74,32 +76,42 @@ public class Find {
 
 		for( int i = 0; i<elements.size(); i++ ){
 			if( elements.get(i).contains(find_element) ){
+				
 				elements_found++; 
-				elements_list.add(new ArrayList<String>());
-			
 				first_count++;
+				elements_list.add(new ArrayList<String>());
+				System.out.println(elements_list.size() + " i: " + i );
+				
 			}
 			
 			if( elements_found !=0 ){
 				for( int j=0; j<elements_found; j++ ){
+					
 					elements_list.get(j).add(elements.get(i));
+				
 				}
 			}
 			
 			if( elements.get(i).contains(find_element_end) && elements_found !=0 ){
+
+				elements_list2.add(elements_list.get(elements_list.size()-1));
+				elements_list.remove( elements_list.size()-1 );
+				
 				elements_found--;
 				second_count++;
+
 			}
 		}
 		
 		
 		
-		for(int i= 0; i<elements_list.size(); i++){
+		for(int i= 0; i<elements_list2.size(); i++){
 			
-			System.out.println("----------------------------------------------------------------");
-			for(int j=0; j<elements_list.get(i).size(); j++){
-				System.out.println( elements_list.get(i).get(j) );
+			System.out.println("----------------------------------------------------------------" + i);
+			for(int j=0; j<elements_list2.get(i).size(); j++){
+				System.out.println( elements_list2.get(i).get(j) );
 			}
+			//System.out.println(elements_list.get(i).size());
 		}
 		
 
@@ -109,8 +121,8 @@ public class Find {
 				+ "Element list: " + elements_list.size() + "\n"
 				+ "first count" + first_count +  "\n"
 				+ "second count" + second_count + "\n"
-				+ "array list" + elements_list.size() + "\n"
-				+ "array list 2 " + elements.get(0).length()
+				+ "array list: " + elements_list.size() + "\n"
+				+ "array list2: "
 				);
 		return elements_list; 
 		
