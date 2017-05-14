@@ -6,7 +6,7 @@ import java.util.List;
 public class Find {
 
 	
-	private boolean debug = true; 
+	private boolean debug = false; 
 	
 	public boolean isDebug() {
 		return debug;
@@ -98,7 +98,7 @@ public class Find {
 				for( int j=0; j<elements_found; j++ ){
 					
 					elements_list.get(j).add(elements.get(i));
-				
+					//System.out.println(elements.get(i));
 				}
 			}
 			
@@ -119,6 +119,7 @@ public class Find {
 				
 				System.out.println("----------------------------------------------------------------" + i);
 				for(int j=0; j<elements_list2.get(i).size(); j++){
+					
 					System.out.println( elements_list2.get(i).get(j) );
 				}
 				//System.out.println(elements_list.get(i).size());
